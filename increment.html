@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+  <title>Increment</title>
+  <style>
+.btn{
+border:none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+	font-size:20px;
+	background-color:pink;
+    font-weight: bold;
+    width: 200px;
+    margin-bottom: 5px;
+	margin-right: 5%;
+	margin-left: 3%;
+    border-radius: 3px;
+	opacity:1.1
+}
+
+body {
+    background-image: url("pink.jpg");
+    background-size: cover;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI';
+    font-weight: bold;
+    text-align: center;
+}
+h1{
+margin-top:20%;
+}
+  </style>
+  
+</head>
+<body>
+
+
+<h1>Increment Counter</h1>
+<h2 id="count-el">0</h2>
+ <button class="btn" onclick=increment()>Increment</button> 
+<button class="btn" onclick=decrement()>Decrement</button>  
+<p id="error"></p>
+<button class="btn" onclick=save()>Save</button>      
+ <p id="sav2">Previous Entries: </p>
+
+  <script>
+  
+		let ss="number cannot be negative";
+		let countEl = document.getElementById("count-el");
+		let count=0;
+		let sv=document.getElementById("sav2");
+  function increment() {
+    count = count+1;
+    countEl.textContent = count;
+}
+ function decrement() {
+ if(count==0){
+  let c = document.getElementById("error");
+  c.textContent=ss;
+ }
+ else{
+    count = count-1;
+    countEl.textContent = count;
+	}
+}
+ function save(){
+ let c=count+" - ";
+	sv.textContent+= c;
+	count=0;
+	countEl.textContent = count;
+} </script>
+</body>
+</html>
